@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./default_var
+source $(dirname $0)/default_var
 
 function cv() {
     if [ $# != 2 ]; then
