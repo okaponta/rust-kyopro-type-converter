@@ -1,7 +1,7 @@
-# rust-convert-type
+# rust-kyopro-type-converter
 
 ちょっと型を変換したいってときによくど忘れするので作成しました。  
-よかったら🌟お願いします！
+よかったら使ってください！🌟もよければお願いします！
 
 ## 変換に対応している型たち
 
@@ -12,17 +12,17 @@
 
 ## 対応表
 
-| from\to | int | char | alpha | str |
-| ------- | --- | ---  | ----- | --- |
-| int     | ×   | ○    |  ○    | ○   |
-| char    | ○   | ×    |  ×    | ○   |
-| alpha   | ○   | ×    |  ×    | ○   |
-| str     | ○   | ○    |  ×    | ×   |
+| ↓from\to→ | int | char | alpha | str |
+| --------- | --- | ---  | ----- | --- |
+| int       | ×   | ○    |  ○    | ○   |
+| char      | ○   | ×    |  ×    | ○   |
+| alpha     | ○   | ×    |  ×    | ○   |
+| str       | ○   | ○    |  ×    | ×   |
 
 ## Usage
 
  - 本リポジトリをクローンする
-   - `git clone https://github.com/okaponta/rust-convert-type.git`
+   - `git clone https://github.com/okaponta/rust-kyopro-type-converter.git`
  - function読み込み(コンソール立ち上げた初回のみ)
    - `source /path/to/repo/convert.sh`
  - コマンド実行
@@ -30,6 +30,8 @@
    - 変換のソースがコマンドラインに出力され、**クリップボードにコピーされます**
 
 ## Demo
+
+![rust-kyopro-type-converter-demo](https://user-images.githubusercontent.com/59508678/171935061-6d3c7146-0a1e-4eab-bc49-5be6fbea09eb.gif)
 
 ## FAQ
 
@@ -43,3 +45,5 @@
  - 毎回`source`と打って読み込むのめんどくさい
    - `.zshrc`に追加すればデフォルトで読み込まれます。
    - 自分は競プロするときに読み込む環境変数があるのでそこにこれもあわせて設定しています。
+ - こんな機能がほしい/バグってる
+   - IssueかPull Requestをお願いします！！
