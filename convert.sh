@@ -9,7 +9,8 @@ function cv() {
     fi
     case "$1" in
     int | [iu][0-9][0-9]) from_int $2 ;;
-    char | alpha) from_char $2 ;;
+    char) from_char $2 ;;
+    alpha) from_alpha $2 ;;
     str | String) from_str $2 ;;
     *) echo "NOT SUPPORTED" ;;
     esac
@@ -49,6 +50,21 @@ function from_char() {
     esac
 }
 
+function from_alpha() {
+    echo "alpha -> $1"
+    case "$1" in
+    int | [iu][0-9][0-9])
+        echo ${ALPHA_INT}
+        echo ${ALPHA_INT} | pbcopy
+        ;;
+    str | String)
+        echo ${CHAR_STR}
+        echo ${CHAR_STR} | pbcopy
+        ;;
+    *) echo "NOT SUPPORTED" ;;
+    esac
+}
+
 function from_str() {
     echo "str -> $1"
     case "$1" in
@@ -65,9 +81,10 @@ function from_str() {
 }
 
 INT_CHAR="std::char::from_digit(${INT} as u8, 10).unwrap()"
-INT_ALPHA="(b'a' + (${INT} - 1) as u8) as char"
+INT_ALPHA="(b'a' + ${INT} as u8) as char"
 INT_STR="${INT}.to_string()"
-CHAR_INT="${CHAR}.to_digit(10).unwrap() as i32"
+CHAR_INT="${CHAR}.to_digit(10).unwrap() as usize"
 CHAR_STR="${CHAR}.iter().collect::<String>()"
-STR_INT="${STR}.parse::<i32>().unwrap()"
+ALPHA_INT="(${CHAR} as u8 - b'a') as usize"
+STR_INT="${STR}.parse::<usize>().unwrap()"
 STR_CHAR="${STR}.chars().collect::<Vec<char>>()"
