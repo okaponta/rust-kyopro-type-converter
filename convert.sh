@@ -80,7 +80,7 @@ function from_str() {
     esac
 }
 
-INT_CHAR="std::char::from_digit(${INT} as u8, 10).unwrap()"
+INT_CHAR="std::char::from_digit(${INT} as u32, 10).unwrap()"
 INT_ALPHA="(b'a' + ${INT} as u8) as char"
 INT_STR="${INT}.to_string()"
 CHAR_INT="${CHAR}.to_digit(10).unwrap() as usize"
